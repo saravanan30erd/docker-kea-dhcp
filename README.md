@@ -5,6 +5,7 @@ Docker images for Kea DHCP server
 
 ```
 docker run -d --name kea-dhcp \
+  --network host \
   -v ${PWD}/kea-dhcp4.conf:/usr/local/etc/kea/kea-dhcp4.conf \
   saravanan30/kea-dhcp-server:latest
 ```
@@ -13,6 +14,7 @@ docker run -d --name kea-dhcp \
 
 ```
 docker run -d --name kea-dhcp-ddns \
+  --network host \
   --entrypoint=/usr/sbin/kea-dhcp-ddns \
   -v ${PWD}/kea-dhcp-ddns.conf:/usr/local/etc/kea/kea-dhcp-ddns.conf \
   saravanan30/kea-dhcp-server:latest -c /usr/local/etc/kea/kea-dhcp-ddns.conf
